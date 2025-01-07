@@ -24,7 +24,7 @@ const Header = ({ onScroll }) => {
         isScrolled ? "shadow-md bg-gray-100" : ""
       }`}
     >
-      <div className="container mx-auto lg:px-32 sm:px:8 py-3 flex justify-between items-center">
+      <div className="container mx-auto lg:px-32 sm:px:8 py- flex justify-between items-center">
         <div>
           <img src="/logo/jtp-logo.png" alt="Logo" className="h-12 w-auto" />
         </div>

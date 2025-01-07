@@ -31,7 +31,7 @@ export const worksData = [
       githubLink: "https://github.com/design",
       liveLink: "https://github.com/JishnuTP/WorkersOnline.git",
       detailsLink: "https://github.com/JishnuTP/WorkersOnline.git",
-      tags: ["UI/UX", "Design", "Web","Learning"],
+      tags: ["UI/UX", "Design", "Web",],
       techStack: ["HTML", "CSS", "JavaScript"],
       projectDate: "August 2023",
     },
