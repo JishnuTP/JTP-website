@@ -7,6 +7,9 @@ import SwipeableCardDeck from './components/SwipeCard';
 import Works from './components/Works';
 import Skills from './components/Skills';
 import Scroller from './components/Scroller';
+import Expertise from './components/Expertise';
+import ContactMe from './components/Contact';
+import Footer from './components/Footer';
 
 
 function App() {
@@ -30,8 +33,10 @@ function App() {
       {/* <Skills/> */}
       <Experience />
       {/* <SwipeableCardDeck/> */}
-     
+     <Expertise/>
       <Works/>
+      <ContactMe/>
+      <Footer/>
     </div>
       </div>
     );

@@ -10,7 +10,7 @@ const Hero = () => {
   const text2= "Creative Full Stack Developer with 2 years of hands-on experience in designing, developing, and deploying scalable web applications.".split(" ");
     
   return (
-    <section id="about" className="px-4 py-6  text-center bg-gradient-t from-white to-gray-800  md:flex md:items-center md:space-x-12">
+    <section id="about" className="px-4 py-6  text-center bg-gradient-t from-white to-gray-800  md:flex md:items-center md:space-x-10">
  <BackgroundBeams className="opacity-200 z-0" />
       <div className="flex-1">
         <div className="relative w-64 h-84 mx-auto max-w-sm aspect-[3/4] sm:w-64 sm:h-84 sm:mx-auto">
@@ -31,22 +31,24 @@ const Hero = () => {
         </div>
 
 
-        <div className="flex justify-center mr-16 space-x-4 mt-4 text-gray-700  sm:space-x-4 sm:mt-6">
-          {/* Phone Icon */}
-          <a href="tel:+919037731597" className="hover:opacity-75">
-            <img src="/socialmedia/call-icon.png" alt="Phone" className="w-6 h-6 sm:w-6 sm:h-6" />
-          </a>
+        <div className="flex justify-center mr-16 space-x-4 mt-4 text-gray-700 sm:space-x-4 sm:mt-6">
+  {/* Phone Icon */}
+  <a href="tel:+919037731597" className="hover:opacity-75 transform transition-transform duration-300 hover:scale-110">
+    <img src="/socialmedia/call-icon.png" alt="Phone" className="w-6 h-6 sm:w-6 sm:h-6" />
+  </a>
 
-          {/* Email Icon */}
-          <a href="tpjishnu5@gmail.com" className="hover:opacity-75">
-            <img src="/socialmedia/mail-icon.png" alt="Email" className="w-6 h-6 sm:w-6 sm:h-6" />
-          </a>
+  {/* Email Icon */}
+  <a href="mailto:tpjishnu5@gmail.com" className="hover:opacity-75 transform transition-transform duration-300 hover:scale-110">
+    <img src="/socialmedia/mail-icon.png" alt="Email" className="w-6 h-6 sm:w-6 sm:h-6" />
+  </a>
 
-          {/* LinkedIn Icon */}
-          <a href="https://www.linkedin.com/in/jishnnutp/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75">
-            <img src="/socialmedia/linkedin-icons.png" alt="LinkedIn" className="w-6 h-6 sm:w-6 sm:h-6" />
-          </a>
-        </div>
+  {/* LinkedIn Icon */}
+  <a href="https://www.linkedin.com/in/jishnnutp/" target="_blank" rel="noopener noreferrer" className="hover:opacity-75 transform transition-transform duration-300 hover:scale-110">
+    <img src="/socialmedia/linkedin-icons.png" alt="LinkedIn" className="w-6 h-6 sm:w-6 sm:h-6" />
+  </a>
+</div>
+
+
 
         <button className="mt-4 px-4 py-2 bg-gray-800 font-Audiowide text-white rounded-lg hover:bg-gray-700 text-xs  sm:px-4 sm:py-2 sm:mt-4">
           DOWNLOAD RESUME

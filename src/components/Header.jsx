@@ -79,7 +79,8 @@ const Header = ({ onScroll }) => {
         ))}
 
         {/* Mobile Hire Me Button */}
-        <button className="block w-full px-4 py-2 mt-2 bg-blue-600 text-white rounded-lg text-sm font-Audiowide hover:bg-blue-500 transition duration-300 ease-in-out">
+        <button className="md:block w-full px-4 py-2 mt-2 bg-blue-600 text-white  rounded-lg text-xs  hover:bg-blue-500 transition duration-300 ease-in-out" onClick={() => {
+              onScroll(item="contact")}}>
           HIRE ME
         </button>
       </div>

@@ -25,7 +25,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <section id="experience" className="relative px-6 lg:px-40 py-12 opacity-90">
+    <section id="experience" className="relative px-10 lg:px-40 py-12 opacity-90">
       {/* Background Image with Fade Effect */}
       <div className="absolute inset-0 w-full h-full bg-cover bg-center opacity-50"
         style={{
@@ -77,9 +77,9 @@ const Experience = () => {
                   key={index}
                   className="ml-4 mb-6 p-4 transition-transform transform border-l-4 border-transparent hover:border-blue-500 hover:bg-gray-50 hover:scale-105 rounded-md"
                 >
-                  <p className="text-sm text-gray-600">{exp.period}</p>
+                  <p className="text-xs text-gray-600">{exp.period}</p>
                   <h3 className="text-sm font-Audiowide">{exp.company}</h3>
-                  <p className="text-gray-600">{exp.role}</p>
+                  <p className="text-xs text-gray-600">{exp.role}</p>
                 </div>
               ))}
             </div>
@@ -114,9 +114,9 @@ const Experience = () => {
                   key={index}
                   className="ml-4 mb-6 p-4 transition-transform transform border-l-4 border-transparent hover:border-green-500 hover:bg-gray-50 hover:scale-105 rounded-md"
                 >
-                  <p className="text-sm text-gray-600">{edu.period}</p>
+                  <p className="text-xs text-gray-600">{edu.period}</p>
                   <h3 className="text-sm font-Audiowide">{edu.qualification}</h3>
-                  <p className="text-gray-600">{edu.institution}</p>
+                  <p className="text-xs text-gray-600">{edu.institution}</p>
                 </div>
               ))}
             </div>
