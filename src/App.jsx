@@ -35,7 +35,7 @@ function App() {
       {/* <SwipeableCardDeck/> */}
      <Expertise/>
       <Works/>
-      {/* <ContactMe/> */}
+      <ContactMe/>
       <Footer/>
     </div>
       </div>

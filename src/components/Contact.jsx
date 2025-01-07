@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaEnvelope, FaRocket } from 'react-icons/fa';
-// import emailjs from 'emailjs-com';  // Import EmailJS
-import './ContactMe.css'; // Import custom CSS for animations
+import emailjs from 'emailjs-com';  // Import EmailJS
+import './contactMe.css'; // Import custom CSS for animations
 
 function ContactMe() {
   const [formData, setFormData] = useState({
@@ -21,31 +21,31 @@ function ContactMe() {
     });
   };
 
-//   const handleSubmit = (event) => {
-//     event.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
 
-//     emailjs
-//       .sendForm(
-//         'service_mkrdh0d', // Your service ID
-//         'template_9m8jq1q', // Your template ID
-//         event.target, // The form element
-//         'user_xxxxxxx' // Replace with your user ID
-//       )
-//       .then(
-//         (result) => {
-//           console.log(result.text);
-//           setSubmitted(true);
-//           setError(null);  // Reset any previous errors
-//           // Reset form after submission
-//           setFormData({ fullName: '', email: '', subject: '', message: '' });
-//           setTimeout(() => setSubmitted(false), 3000); // Reset the submitted state after 3 seconds
-//         },
-//         (error) => {
-//           console.log(error.text);
-//           setError("There was an issue sending the message. Please try again later.");
-//         }
-//       );
-//   };
+    emailjs
+      .sendForm(
+        'service_mkrdh0d', // Your service ID
+        'template_9m8jq1q', // Your template ID
+        event.target, // The form element
+        'user_xxxxxxx' // Replace with your user ID
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+          setSubmitted(true);
+          setError(null);  // Reset any previous errors
+          // Reset form after submission
+          setFormData({ fullName: '', email: '', subject: '', message: '' });
+          setTimeout(() => setSubmitted(false), 3000); // Reset the submitted state after 3 seconds
+        },
+        (error) => {
+          console.log(error.text);
+          setError("There was an issue sending the message. Please try again later.");
+        }
+      );
+  };
 
   return (
     <section className="container mx-auto py-12 flex flex-col items-center" id="contact">
