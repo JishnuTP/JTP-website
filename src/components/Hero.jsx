@@ -9,6 +9,17 @@ const Hero = () => {
   const text = "My aim is to create impactful solutions through innovative development continuous learning and adapting to emerging technologies while contributing to meaningful projects that make a difference".split(" ");
   const text2= "Creative Full Stack Developer with 2 years of hands-on experience in designing, developing, and deploying scalable web applications.".split(" ");
     
+  const handleDownload = () => {
+    console.log(
+      "here");
+    
+    // Triggering the download of the PDF
+    const link = document.createElement('a');
+    link.href = '/JISHNU_2025.pdf'; // Change the path to your actual PDF file
+    link.download = 'jishnu_cv.pdf'; // The name of the downloaded file
+    link.click(); // Simulate a click event to start the download
+  };
+
   return (
     <section id="about" className="px-4 py-6  text-center bg-gradient-t from-white to-gray-800  md:flex md:items-center md:space-x-10">
  <BackgroundBeams className="opacity-200 z-0" />
@@ -50,9 +61,12 @@ const Hero = () => {
 
 
 
-        <button className="mt-4 px-4 py-2 bg-gray-800 font-Audiowide text-white rounded-lg hover:bg-gray-700 text-xs  sm:px-4 sm:py-2 sm:mt-4">
-          DOWNLOAD RESUME
-        </button>
+<button
+      className="mt-4 px-4 py-2 bg-gray-800 font-Audiowide text-white rounded-lg hover:bg-gray-700 hover:scale-105 transition-transform duration-300 text-xs sm:px-4 sm:py-2 sm:mt-4"
+      onClick={handleDownload}
+    >
+      DOWNLOAD RESUME
+    </button>
       </div>
       <div className="flex-1 text-left space-y-6 sm:text-center mt-6 sm:mt-12"> {/* Added space-y-6 for vertical spacing */}
 

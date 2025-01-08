@@ -10,6 +10,7 @@ import Scroller from './components/Scroller';
 import Expertise from './components/Expertise';
 import ContactMe from './components/Contact';
 import Footer from './components/Footer';
+import ChatBot from './components/ChatBot';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
       <Works/>
       <ContactMe/>
       <Footer/>
+      <ChatBot/>
     </div>
       </div>
     );
