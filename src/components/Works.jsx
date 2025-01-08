@@ -267,7 +267,7 @@ const Works = () => {
 
 
         {/* Show More Button */}
-        <div className="text-center mt-10 md:mt-10">
+        <div className="text-center mt-1 md:mt-10">
           {visibleWorks < worksData.length && (
             <button
               className="text-white bg-black hover:bg-purple-700 transition-colors py-1.5 px-3 rounded-full text-xs flex items-center justify-center mx-auto"
