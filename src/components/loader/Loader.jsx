@@ -29,8 +29,8 @@ const Loader = () => {
 
 {!firstAnimationDone && (
         <SplitText
-          text="Hello, I'm Jishnu TP!"
-          className="text-6xl text-white font-eagle font-extrabold text-center"
+          text="Hello, I'm Jishnu TP."
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-eagle font-extrabold text-center"
           delay={150}
           animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
           animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
@@ -44,8 +44,9 @@ const Loader = () => {
       {/* Second SplitText - Shows after first one finishes */}
       {firstAnimationDone && (
         <SplitText
-          text="Welcome To My Portfolio..!"
-          className="text-6xl text-white font-eagle font-extrabold text-center"
+        text="Welcome To My Portfolio..!"
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-eagle font-extrabold text-center"
+        
           delay={150}
           animationFrom={{ opacity: 0, transform: 'translate3d(0,50px,0)' }}
           animationTo={{ opacity: 1, transform: 'translate3d(0,0,0)' }}
