@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
+import { useNavigate } from "react-router-dom";
 
 const Header = ({ onScroll }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false); // Hide header on scroll down
+      } else {
+        setIsVisible(true); // Show header on scroll up
+      }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -20,69 +31,84 @@ const Header = ({ onScroll }) => {
 
   return (
     <header
-      className={`fixed top-0 left-0 z-50 w-full bg-white transition-colors duration-300 ${
-        isScrolled ? "shadow-md bg-gray-100" : ""
+      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] md:w-[80%] backdrop-blur-lg bg-black/10 rounded-full transition-all duration-300 ${
+        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
-      <div className="container mx-auto lg:px-32 sm:px:8 py- flex justify-between items-center">
+      <div className="flex justify-between items-center py-3 px-6">
+        {/* Logo */}
         <div>
-          <img src="/logo/jtp-logo.png" alt="Logo" className="h-12 w-auto" />
+          <img
+            src="/logo/jtp-logo.png"
+            alt="Logo"
+            className="h-12 w-auto transition-transform duration-300 hover:scale-105"
+          />
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-4">
+        <nav className="hidden md:flex space-x-6">
           {["experience", "work", "about", "resume", "contact"].map((item) => (
             <button
               key={item}
-              onClick={() => onScroll(item)}
-              className="nav-button text-gray-700 hover:text-blue-600 hover:animate-pulse transition duration-300 ease-in-out font-nosifer text-xs uppercase"
+              onClick={() =>
+                item === "resume" ? navigate("/resume") : onScroll(item)
+              }
+              className="relative text-white text-sm font-semibold uppercase transition-all duration-300 hover:text-blue-400"
             >
               {item.toUpperCase()}
             </button>
           ))}
         </nav>
 
+        {/* Hire Me Button (Desktop) */}
+        <button
+          className="hidden md:block px-6 py-2 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full text-sm font-bold shadow-lg hover:scale-105 transition-transform duration-300"
+          onClick={() => onScroll("contact")}
+        >
+          HIRE ME
+        </button>
+
         {/* Mobile Menu Icon */}
-        <div className="md:hidden ">
-          <button onClick={toggleMobileMenu}>
+        <div className="md:hidden">
+          <button onClick={toggleMobileMenu} className="text-black">
             {isMobileMenuOpen ? (
-              <XIcon className="h-8 w-8 text-gray-700 transition-transform duration-300 ease-in-out" />
+              <XIcon className="h-8 w-8 transition-transform duration-300" />
             ) : (
-              <MenuIcon className="h-8 w-8 text-gray-700 transition-transform duration-300 ease-in-out" />
+              <MenuIcon className="h-8 w-8 transition-transform duration-300" />
             )}
           </button>
         </div>
-
-        {/* Desktop Hire Me Button */}
-        <button className="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-bold hover:bg-blue-500 transition duration-300 ease-in-out">
-          HIRE ME
-        </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-white  px-4 overflow-hidden transition-max-h duration-300 ease-in-out ${
-          isMobileMenuOpen ? "max-h-[500px]" : "max-h-0"
+        className={`md:hidden overflow-hidden transition-all  duration-300 ${
+          isMobileMenuOpen ? "max-h-screen opacity-100 " : "max-h-0 opacity-0"
         }`}
       >
-        {["experience", "work", "about", "resume", "contact"].map((item) => (
-          <button
-            key={item}
-            onClick={() => {
-              onScroll(item);
-              toggleMobileMenu();
-            }}
-            className="block w-full text-left py-2 text-gray-700 hover:text-blue-600 hover:animate-bounce transition duration-300 ease-in-out font-bold uppercase"
-          >
-            {item.toUpperCase()}
-          </button>
-        ))}
+        <div className="flex flex-col bg-white/20 backdrop-blur-lg p-6 rounded-b-2xl">
+          {["experience", "work", "about", "resume", "contact"].map((item) => (
+            <button
+              key={item}
+              onClick={() => {
+                item === "resume" ? navigate("/resume") : onScroll(item);
+                toggleMobileMenu();
+              }}
+              className="block py-3 text-white text-lg font-semibold uppercase transition duration-300 hover:text-blue-400"
+            >
+              {item.toUpperCase()}
+            </button>
+          ))}
 
-        {/* Mobile Hire Me Button */}
-        <button className="md:block w-full px-4 py-2 mt-2 bg-blue-600 text-white  rounded-lg text-xs  hover:bg-blue-500 transition duration-300 ease-in-out" onClick={() => {
-              onScroll(item="contact")}}>
-          HIRE ME
-        </button>
+          {/* Mobile Hire Me Button */}
+          <button
+  className="w-full mt-4 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full font-bold shadow-md hover:scale-105 transition-transform duration-300 text-sm md:text-base"
+  onClick={() => onScroll("contact")}
+>
+  HIRE ME
+</button>
+
+        </div>
       </div>
     </header>
   );

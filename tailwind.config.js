@@ -17,6 +17,8 @@ module.exports = {
         Audiowide: ['"Audiowide"', 'sans-serif'],
         Bungee: ['"Bungee Shade"', 'sans-serif'],
         nosifer: ['"Nosifer"', 'sans-serif'],
+        eagle: ['"Eagle Lake"', 'cursive'],
+      
       },
       animation: {
         'fade-in-up': 'fade-in-up 0.8s ease-out',

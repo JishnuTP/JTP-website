@@ -10,15 +10,16 @@ const Hero = () => {
   const text2= "Creative Full Stack Developer with 2 years of hands-on experience in designing, developing, and deploying scalable web applications.".split(" ");
     
   const handleDownload = () => {
-    console.log(
-      "here");
+    console.log("download");
     
-    // Triggering the download of the PDF
-    const link = document.createElement('a');
-    link.href = '/JISHNU_2025.pdf'; // Change the path to your actual PDF file
-    link.download = 'jishnu_cv.pdf'; // The name of the downloaded file
-    link.click(); // Simulate a click event to start the download
-  };
+    const resumeUrl = "/JISHNU_2025.pdf"; // ✅ Make sure the file is inside the public folder
+  const link = document.createElement("a");
+  link.href = resumeUrl;
+  link.setAttribute("download", "Jishnu_TP_Resume.pdf"); // ✅ Set the filename
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
 
   return (
     <section id="about" className="px-4 py-6  text-center bg-gradient-t from-white to-gray-800  md:flex md:items-center md:space-x-10">
@@ -61,12 +62,25 @@ const Hero = () => {
 
 
 
-<button
-      className="mt-4 px-4 py-2 bg-gray-800 font-Audiowide text-white rounded-lg hover:bg-gray-700 hover:scale-105 transition-transform duration-300 text-xs sm:px-4 sm:py-2 sm:mt-4"
-      onClick={handleDownload}
-    >
-      DOWNLOAD RESUME
-    </button>
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  className="mt-4 px-2 py- bg-gray-800 font-Audiowide text-white rounded-lg 
+             hover:bg-gray-700 transition-transform duration-300 text-xs 
+             sm:px-2 sm:py- sm:mt-4"
+  onClick={handleDownload}
+>
+  <span>DOWNLOAD RESUME</span>
+  <motion.div
+    initial={{ opacity: 0, scale: 0.8 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+  >
+    ⬇️
+  </motion.div>
+</motion.button>
+
+
       </div>
       <div className="flex-1 text-left space-y-6 sm:text-center mt-6 sm:mt-12"> {/* Added space-y-6 for vertical spacing */}
 

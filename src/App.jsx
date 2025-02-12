@@ -1,47 +1,51 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Hero from './components/Hero';
-import Experience from './components/Experience';
-import SwipeableCardDeck from './components/SwipeCard';
-import Works from './components/Works';
-import Skills from './components/Skills';
-import Scroller from './components/Scroller';
-import Expertise from './components/Expertise';
-import ContactMe from './components/Contact';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
+import Home from './pages/HomePage';
 
+import './App.css';
+import Loader from './components/loader/Loader';
 
 function App() {
+  const [loading, setLoading] = useState(true);
 
- 
-    const handleScroll = (id) => {
-      const section = document.getElementById(id);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-     
-    };
-  
-    return (
-      <div>
-        
-        <Header onScroll={handleScroll} />
-        <div className="pt-20"> {/* Adds space to offset the fixed header */}
-      <Hero />
-      <Scroller/>
-      {/* <Skills/> */}
-      <Experience />
-      {/* <SwipeableCardDeck/> */}
-     <Expertise/>
-      <Works/>
-      <ContactMe/>
-      <Footer/>
-      <ChatBot/>
-    </div>
-      </div>
-    );
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 8000);
+
+    return () => clearTimeout(timer); // Cleanup function
+  }, []);
+
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-export default App
+  return (
+    <div className='bg-gray-00'>
+      {loading ? (
+        <Loader /> // Show the loader while loading
+      ) : (
+        <Router>
+          <Header onScroll={handleScroll} />
+          <div className="pt-20">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/resume" element={<Home />} />
+            </Routes>
+            <Footer />
+            <ChatBot />
+          </div>
+        </Router>
+      )}
+    </div>
+  );
+}
+
+export default App;
