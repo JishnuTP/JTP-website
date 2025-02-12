@@ -31,7 +31,7 @@ const Header = ({ onScroll }) => {
 
   return (
     <header
-      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] md:w-[80%] backdrop-blur-lg bg-black/10 rounded-full transition-all duration-300 ${
+      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] md:w-[80%] backdrop-blur-lg bg-black/10 rounded-full transition-all duration-500 ${
         isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
       }`}
     >
@@ -41,7 +41,7 @@ const Header = ({ onScroll }) => {
           <img
             src="/logo/jtp-logo.png"
             alt="Logo"
-            className="h-12 w-auto transition-transform duration-300 hover:scale-105"
+            className="h-12 w-auto transition-transform duration-300 transform hover:scale-105"
           />
         </div>
 
@@ -70,7 +70,7 @@ const Header = ({ onScroll }) => {
 
         {/* Mobile Menu Icon */}
         <div className="md:hidden">
-          <button onClick={toggleMobileMenu} className="text-black">
+          <button onClick={toggleMobileMenu} className="text-white">
             {isMobileMenuOpen ? (
               <XIcon className="h-8 w-8 transition-transform duration-300" />
             ) : (
@@ -82,33 +82,33 @@ const Header = ({ onScroll }) => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden overflow-hidden transition-all  duration-300 ${
-          isMobileMenuOpen ? "max-h-screen opacity-100 " : "max-h-0 opacity-0"
+        className={`md:hidden overflow-hidden transition-all duration-500 ${
+          isMobileMenuOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="flex flex-col bg-white/20 backdrop-blur-lg p-6 rounded-b-2xl">
-          {["experience", "work", "about", "resume", "contact"].map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                item === "resume" ? navigate("/resume") : onScroll(item);
-                toggleMobileMenu();
-              }}
-              className="block py-3 text-white text-lg font-semibold uppercase transition duration-300 hover:text-blue-400"
-            >
-              {item.toUpperCase()}
-            </button>
-          ))}
+       <div className="flex flex-col bg-opacity-50 backdrop-blur-lg p-6 rounded-b-2xl items-center">
+  {["experience", "work", "about", "resume", "contact"].map((item) => (
+    <button
+      key={item}
+      onClick={() => {
+        item === "resume" ? navigate("/resume") : onScroll(item);
+        toggleMobileMenu();
+      }}
+      className="block py-3 text-white text-lg font-semibold uppercase transition-all duration-300 hover:text-blue-400"
+    >
+      {item.toUpperCase()}
+    </button>
+  ))}
 
-          {/* Mobile Hire Me Button */}
-          <button
-  className="w-full mt-4 px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full font-bold shadow-md hover:scale-105 transition-transform duration-300 text-sm md:text-base"
-  onClick={() => onScroll("contact")}
->
-  HIRE ME
-</button>
+  {/* Mobile Hire Me Button (Properly Centered) */}
+  <button
+    className="mt-4 px-6 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-full font-bold shadow-md hover:scale-105 transition-transform duration-300 text-base"
+    onClick={() => onScroll("contact")}
+  >
+    HIRE ME
+  </button>
+</div>
 
-        </div>
       </div>
     </header>
   );

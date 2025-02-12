@@ -34,7 +34,7 @@ function App() {
       ) : (
         <Router>
           <Header onScroll={handleScroll} />
-          <div className="pt-20">
+          <div className="">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/resume" element={<Home />} />

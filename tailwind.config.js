@@ -18,7 +18,8 @@ module.exports = {
         Bungee: ['"Bungee Shade"', 'sans-serif'],
         nosifer: ['"Nosifer"', 'sans-serif'],
         eagle: ['"Eagle Lake"', 'cursive'],
-      
+        one: ['"Leckerli one"', 'cursive'],
+        
       },
       animation: {
         'fade-in-up': 'fade-in-up 0.8s ease-out',
