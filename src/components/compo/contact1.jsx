@@ -20,7 +20,7 @@ function ContactMe1() {
       [event.target.name]: event.target.value,
     });
   };
-  
+
   const handleSubmit = (event) => {
     event.preventDefault(); // Prevents page reload
     console.log(formData); // Debugging to check form data
@@ -28,7 +28,8 @@ function ContactMe1() {
     emailjs
       .sendForm(
         "service_mkrdh0d", // Your EmailJS service ID
-        "template_jwidauz", // Your EmailJS template ID
+        "template_jwidauz",
+      
         
         event.target,       // The form element (must be correctly structured)
         "wxAbDjDKtuRvSeYZv" // Replace with your EmailJS public key

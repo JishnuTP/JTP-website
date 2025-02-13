@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import Waves from './waves/wave';
 import SplitText from "./SplitText";
@@ -10,7 +10,32 @@ const handleAnimationComplete = () => {
 
 
 const Loader = () => {
+
     const [firstAnimationDone, setFirstAnimationDone] = useState(false);
+
+  
+
+    useEffect(() => {
+      // Initialize AudioContext (works more reliably)
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const audio = new Audio('/audio/load.mp3');
+  
+      // Connect audio to context
+      const track = audioContext.createMediaElementSource(audio);
+      track.connect(audioContext.destination);
+  
+      // Start audio on user interaction
+      const handleUserInteraction = () => {
+        audioContext.resume().then(() => {
+          audio.play().catch((error) => console.error('Audio play failed:', error));
+        });
+        document.removeEventListener('click', handleUserInteraction);
+      };
+  
+      document.addEventListener('click', handleUserInteraction);
+    }, []);
+   
+
   return (
     <div className="flex items-center justify-center h-screen bg-black">
      <Waves
@@ -26,6 +51,8 @@ const Loader = () => {
    xGap={12}
    yGap={36}
 />
+
+
 
 {!firstAnimationDone && (
         <SplitText
