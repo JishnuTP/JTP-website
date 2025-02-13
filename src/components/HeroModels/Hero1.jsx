@@ -22,7 +22,7 @@ const Hero1 = () => {
 
   return (
     <section className="relative flex flex-col md:flex-row items-center justify-between px-8 lg:px-40 py-20 min-h-fit bg-gray-900 text-white" id="about">
-      <BackgroundBeams className="absolute inset-0 opacity-30 z-0" />
+      <BackgroundBeams className="absolute inset-0 opacity-60 z-0" />
       
       {/* Left Section */}
       <div className="relative flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:w-1/2">
