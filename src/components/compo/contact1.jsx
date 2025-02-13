@@ -127,7 +127,7 @@ function ContactMe1() {
           <div className="col-span-1 sm:col-span-2">
             <button
               type="submit"
-              className="w-full bg-purple-600 hover:bg-purple-500 transition-all duration-300 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center"
+              className="w-full bg-gradient-to-r from-blue-500 to-indigo-500 text-white font-semibold rounded-full transition-all duration-300  py-3 px-4 rounded-lg flex items-center justify-center"
             >
               <FaRocket className={`mr-2 ${submitted ? "animate-bounce" : ""}`} />
               {submitted ? "Message Sent!" : "Send Message"}
