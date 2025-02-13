@@ -20,32 +20,36 @@ function ContactMe1() {
       [event.target.name]: event.target.value,
     });
   };
-
+  
   const handleSubmit = (event) => {
-    event.preventDefault();
-
+    event.preventDefault(); // Prevents page reload
+    console.log(formData); // Debugging to check form data
+  
     emailjs
       .sendForm(
-        "service_mkrdh0d", // Your service ID
-        "template_9m8jq1q", // Your template ID
-        event.target, // The form element
-        "user_xxxxxxx" // Replace with your user ID
+        "service_mkrdh0d", // Your EmailJS service ID
+        "template_jwidauz", // Your EmailJS template ID
+        
+        event.target,       // The form element (must be correctly structured)
+        "wxAbDjDKtuRvSeYZv" // Replace with your EmailJS public key
       )
       .then(
         (result) => {
-          console.log(result.text);
+          console.log("Email sent successfully:", result.text);
           setSubmitted(true);
           setError(null); // Reset any previous errors
+  
           // Reset form after submission
           setFormData({ fullName: "", email: "", subject: "", message: "" });
           setTimeout(() => setSubmitted(false), 3000); // Reset the submitted state after 3 seconds
         },
         (error) => {
-          console.log(error.text);
+          console.error("EmailJS Error:", error.text);
           setError("There was an issue sending the message. Please try again later.");
         }
       );
   };
+  
 
   return (
     <section className="w-full min-h-screen py-16 px-6 sm:px-10 lg:px-20 bg-gray-900 text-white flex flex-col items-center" id="contact">
