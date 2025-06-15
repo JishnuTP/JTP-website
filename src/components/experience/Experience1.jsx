@@ -53,7 +53,8 @@ const Experience1 = () => {
             <h2 className="text-lg lg:hidden font-semibold text-center mb-8">Experience</h2>
             <div className="border-l-2 border-gray-700">
               {[
-                { period: "2024-aug – present", role: "Full Stack Developer", company: "THE-MENTOR - Full time - (remote)" },
+                { period: "2025-july – present", role: "Software Engineer", company: "Buddiz Ai - Full time - (onsite-Ernamkulam)" },
+                { period: "2024-aug – 2025-june", role: "Full Stack Developer", company: "THE-MENTOR - Full time - (remote)" },
                 { period: "2024-aug – 2023-aug", role: "Full Stack Developer", company: "Technoconnect IT-Solutions - contract (remote)" },
                 { period: "2023-jan – 2023-dec", role: "MERN Stack Development", company: "Brototype - Intern (remote)" },
               ].map((exp, index) => (

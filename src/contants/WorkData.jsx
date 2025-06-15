@@ -1,4 +1,32 @@
 export const worksData = [
+
+   {
+      title: "Trimah-Technologies",
+      description:
+        "A professional consultancy platform offering career guidance, job placements, and business solutions. Designed to connect talent with the right opportunities.",
+      image: "./works/trimah.png",
+      githubLink: "https://trimahhttps://trimahtech.com/",
+      liveLink: "https://trimahtech.com/",
+      detailsLink: "https://trimahtech.com/",
+      tags: ["React", "UI/UX", "MERN"],
+      techStack: ["React", "Node.js", "MongoDB","...."],
+      projectDate: "April 2025 - completed",
+    },
+
+    {
+  title: "Mc Merrys - Event Booking",
+  description:
+    "A vibrant event booking platform offering personalized planning for birthdays, weddings, corporate events, and more. Seamlessly connects users with professional services and theme-based packages.",
+  image: "./works/mcmerrys.png",
+  githubLink: "https://github.com/jishnu",
+  liveLink: "https://mcmerrys.com/",
+  detailsLink: "https://mcmerrys.com",
+  tags: ["Event", "Booking", "UI/UX", "MERN"],
+  techStack: ["React", "Node.js", "Express.js", "MongoDB", "Tailwind CSS", "Multer", "Cloudinary", "Razorpay", "JWT Auth"],
+  projectDate: "June 2025 - completed",
+}
+,
+
     {
       title: "GENAI - (COMPANY-PROJECT)",
       description:
